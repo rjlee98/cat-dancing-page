@@ -1,0 +1,136 @@
+@keyframes cat-bounce-sway {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateY(-16px) rotate(-6deg) scale(1.03);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  75% {
+    transform: translateY(-10px) rotate(6deg) scale(1.02);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes ear-wiggle-left {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-14deg);
+  }
+}
+
+@keyframes ear-wiggle-right {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(14deg);
+  }
+}
+
+@keyframes tail-swish {
+  0%,
+  100% {
+    transform: rotate(-16deg);
+  }
+  50% {
+    transform: rotate(26deg);
+  }
+}
+
+@keyframes paw-tap-left {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+@keyframes paw-tap-right {
+  0%,
+  100% {
+    transform: translateY(5px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes cat-blink {
+  0%,
+  90%,
+  100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.1);
+  }
+}
+
+.dancing-cat .cat-whole,
+.dancing-cat .cat-ear,
+.dancing-cat .cat-tail,
+.dancing-cat .cat-leg,
+.dancing-cat .cat-eye {
+  will-change: transform;
+}
+
+.dancing-cat.is-dancing .cat-whole {
+  transform-origin: 100px 196px;
+  animation: cat-bounce-sway 1.1s ease-in-out infinite;
+}
+
+.dancing-cat.is-dancing .cat-ear-left {
+  transform-origin: 73px 50px;
+  animation: ear-wiggle-left 0.55s ease-in-out infinite;
+}
+
+.dancing-cat.is-dancing .cat-ear-right {
+  transform-origin: 127px 50px;
+  animation: ear-wiggle-right 0.55s ease-in-out infinite;
+}
+
+.dancing-cat.is-dancing .cat-tail {
+  transform-origin: 152px 168px;
+  animation: tail-swish 0.7s ease-in-out infinite;
+}
+
+.dancing-cat.is-dancing .cat-leg-left {
+  transform-origin: 78px 184px;
+  animation: paw-tap-left 0.55s ease-in-out infinite;
+}
+
+.dancing-cat.is-dancing .cat-leg-right {
+  transform-origin: 122px 184px;
+  animation: paw-tap-right 0.55s ease-in-out infinite;
+}
+
+.dancing-cat.is-dancing .cat-eye {
+  transform-origin: center;
+  animation: cat-blink 3.2s ease-in-out infinite;
+}
+
+.dancing-cat.is-paused .cat-whole,
+.dancing-cat.is-paused .cat-ear,
+.dancing-cat.is-paused .cat-tail,
+.dancing-cat.is-paused .cat-leg,
+.dancing-cat.is-paused .cat-eye {
+  animation: none;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dancing-cat * {
+    animation: none !important;
+  }
+}

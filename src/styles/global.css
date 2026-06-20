@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-top: #ffe9d6;
+  --bg-bottom: #ffd6e8;
+  --text: #4a3728;
+  --accent: #ff7a59;
+  --accent-dark: #e8633f;
+  color-scheme: light;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Segoe UI', 'Pretendard', system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+button {
+  font-family: inherit;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  text-align: center;
+  gap: 24px;
+}
+
+.page-header h1 {
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  margin-bottom: 8px;
+}
+
+.page-header p {
+  font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+  color: #6b5547;
+}
+
+.page-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.dancing-cat {
+  width: min(60vw, 280px);
+  height: auto;
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.15));
+}
+
+.animation-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.toggle-button {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 999px;
+  padding: 14px 32px;
+  min-height: 44px;
+  min-width: 44px;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.toggle-button:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+}
+
+.toggle-button:active {
+  transform: translateY(0);
+}
+
+.toggle-button:focus-visible {
+  outline: 3px solid #4a3728;
+  outline-offset: 3px;
+}
+
+.status-text {
+  font-size: 0.95rem;
+  color: #6b5547;
+  min-height: 1.2em;
+}
+
+.page-footer {
+  font-size: 0.8rem;
+  color: #8a7565;
+  opacity: 0.8;
+}
+
+@media (min-width: 480px) {
+  .dancing-cat {
+    width: min(50vw, 320px);
+  }
+}
+
+@media (min-width: 768px) {
+  .page {
+    gap: 32px;
+  }
+
+  .dancing-cat {
+    width: min(36vw, 360px);
+  }
+
+  .toggle-button {
+    font-size: 1.15rem;
+    padding: 16px 40px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .dancing-cat {
+    width: 400px;
+  }
+}
+
+@media (max-height: 600px) and (orientation: landscape) {
+  .page {
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 24px;
+  }
+
+  .page-header {
+    order: 1;
+  }
+
+  .page-main {
+    order: 2;
+  }
+
+  .dancing-cat {
+    width: min(30vh, 220px);
+  }
+}
